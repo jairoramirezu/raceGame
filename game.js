@@ -153,9 +153,15 @@ function setCanvasSize() {
     ? canvasSize = window.innerWidth * 0.7
     : canvasSize = window.innerHeight * 0.7;
 
+    canvasSize = Number(canvasSize.toFixed(1));
+
     canvas.setAttribute("height", canvasSize);
     canvas.setAttribute("width", canvasSize);
     canvasElement = canvasSize / 10.2;
+    playerPosition.x = undefined;
+    playerPosition.y = undefined;
+    // solve problem in case you do resize to not start in the very first move
+    //  check code https://codepen.io/Miguel-Mora/pen/YzabKMj
     startGame()
 }
 
